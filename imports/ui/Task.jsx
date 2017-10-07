@@ -1,7 +1,15 @@
-import React, { Component, PropTypes } from 'react';
- 
-// Task component - represents a single todo item
-export default class Task extends Component {
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+
+//Classes are used when state needs to be held, otherwise you should use functional components
+//This tutorial will
+class Task extends Component {
+
+  constructor(...args){
+      super(...args);
+  }
+
   render() {
     return (
       <li>{this.props.task.text}</li>
@@ -10,7 +18,7 @@ export default class Task extends Component {
 }
  
 Task.propTypes = {
-  // This component gets the task to display through a React prop.
-  // We can use propTypes to indicate it is required
-  task: PropTypes.object.isRequired,
+  task: PropTypes.object.isRequired
 };
+
+export default Task;
