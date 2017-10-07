@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
  
 import Task from './Task.jsx';
  
 // App component - represents the whole app
-export default class App extends Component {
+class App extends Component {
+
+
+    //this will get replaced in the tutorial with Mongo DB
   getTasks() {
     return [
       { _id: 1, text: 'This is task 1' },
@@ -13,7 +16,7 @@ export default class App extends Component {
   }
  
   renderTasks() {
-    return this.getTasks().map((task) => (
+    return this.getTasks().map(task => (
       <Task key={task._id} task={task} />
     ));
   }
@@ -32,3 +35,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
