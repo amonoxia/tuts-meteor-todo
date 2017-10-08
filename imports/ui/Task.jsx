@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 //This tutorial will
 class Task extends Component {
 
-  constructor(...args){
-      super(...args);
-  }
+constructor(...args){
+    super(...args);
+}
 
   render() {
     return (
@@ -16,7 +16,7 @@ class Task extends Component {
     );
   }
 }
- 
+
 Task.propTypes = {
   task: PropTypes.object.isRequired
 };
