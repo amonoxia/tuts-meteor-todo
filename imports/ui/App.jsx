@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="container">
         <header>
-          <h1>Todo List</h1>
+          <h1>Do/Due List</h1>
         </header>
 
         <ul>
