@@ -1,24 +1,39 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react'; import PropTypes from 'prop-types';
 
+import { Tasks } from '../api/tasks.js';
 
-//Classes are used when state needs to be held, otherwise you should use functional components
-//This tutorial will
-class Task extends Component {
-
-constructor(...args){
-    super(...args);
-}
-
-  render() {
-    return (
-      <li>{this.props.task.text}</li>
-    );
+// Task component - represents a single Do/Due item
+export default class Task extends Component {
+  toggleChecked () {
+    // Set the checked property to the opposite of its current value
+    Tasks.update(this.props.task._id {
+      $set: { checked: !this.props.task.checked },
+    });
   }
+
+deleteThisTask() {
+  Tasks.remove(this.props.task._id);
 }
 
-Task.propTypes = {
-  task: PropTypes.object.isRequired
-};
+render () {
+  // Give tasks a different className when they are checked off,
+  // so that we can style them nicely in className
+  const taskClassName = this.props.task.checked ? 'checked' : '';
 
-export default Task;
+  return (
+    <li className={taskClassName}>
+      <button className="delete" onClick={this.deleteThisTask.bind(this)}>
+        &times;
+      </button>
+
+      <input
+        type="checkbox"
+        readOnly
+        checked={this.props.task.checked}
+        onClick={this.toggleChecked.bind(this)}
+      />
+
+      <span className="text">{this.props.task.text}</span>
+    </li>
+  );
+}
