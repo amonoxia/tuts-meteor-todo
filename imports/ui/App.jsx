@@ -23,7 +23,7 @@ class App extends Component {
     // Clear form
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
   }
-  
+
   renderTasks() {
     return this.props.tasks.map(task => (
       <Task key={task._id} task={task} />
@@ -59,6 +59,6 @@ App.propTypes = {
 
 export default createContainer(() => {
   return {
-    tasks: Tasks.find().fetch()
+    tasks: Tasks.find({}, { sort: { createdAt: -1}}).fetch(),
   };
 }, App);
