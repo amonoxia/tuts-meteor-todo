@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react'; import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import {createContainer} from 'meteor/react-meteor-data';
 
@@ -35,6 +34,16 @@ class App extends Component {
       <div className="container">
         <header>
           <h1>Do/Due List</h1>
+
+          <label className="hide-completed">
+            <input
+              type="checkbox"
+              readOnly
+              checked={this.state.hideCompleted}
+              onClick={this.toggleHideCompleted.bind(this)}
+            />
+            Hide Completed Tasks
+          </label>
 
           <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
             <input
