@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div className="container">
         <header>
-          <h1>Do/Due List</h1>
+          <h1>Do/Due List ({this.props.incompleteCount})</h1>
 
           <label className="hide-completed">
             <input
@@ -81,7 +81,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  tasks: PropTypes.array.isRequired
+  tasks: PropTypes.array.isRequired,
+  incompleteCount: PropTypes.number.isRequired,
 };
 
 export default createContainer(() => {
