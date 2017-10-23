@@ -34,7 +34,7 @@ render () {
       />
 
       <span className="text">
-        <strong>{this.props.task.username}</strong> {this.props.task.text}
+        {this.props.task.text} <em>- {this.props.task.username}</em>
       </span>
     </li>
   );
