@@ -25,9 +25,10 @@ body {
 }
 
 header {
-  background: #ebd9c6  url("/images/poop.png") no-repeat top center;
-  padding: 20px 15px 15px 15px;
+  background: #ebd9c6  url("/images/poop.png") no-repeat bottom center;
+  padding: 15px;
   position: relative;
+  height: 95px;
 }
 
 #login-buttons {
