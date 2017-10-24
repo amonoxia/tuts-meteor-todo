@@ -8,32 +8,39 @@ export default class Task extends Component {
     Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);
   }
 
-deleteThisTask() {
+  deleteThisTask() {
   Meteor.call('tasks.remove', this.props.task._id);
+  }
+
+  render () {
+    // Give tasks a different className when they are checked off,
+    // so that we can style them nicely in className
+    const taskClassName = this.props.task.checked ? 'checked' : '';
+
+    return (
+      <li className={taskClassName}>
+        <button className="delete" onClick={this.deleteThisTask.bind(this)}>
+          &times;
+        </button>
+
+        <input
+          type="checkbox"
+          readOnly
+          checked={this.props.task.checked}
+          onClick={this.toggleChecked.bind(this)}
+        />
+
+        <span className="text">
+          {this.props.task.text} <em>- {this.props.task.username}</em>
+        </span>
+      </li>
+    );
+  }
 }
 
-render () {
-  // Give tasks a different className when they are checked off,
-  // so that we can style them nicely in className
-  const taskClassName = this.props.task.checked ? 'checked' : '';
-
-  return (
-    <li className={taskClassName}>
-      <button className="delete" onClick={this.deleteThisTask.bind(this)}>
-        &times;
-      </button>
-
-      <input
-        type="checkbox"
-        readOnly
-        checked={this.props.task.checked}
-        onClick={this.toggleChecked.bind(this)}
-      />
-
-      <span className="text">
-        {this.props.task.text} <em>- {this.props.task.username}</em>
-      </span>
-    </li>
-  );
-}
-}
+Task.propTypes = {
+  // This component gets the task to display through a React prop. Deprecated?
+  // We can use propTypes to indicate it is required
+  task: PropTypes.object.isRequired,
+  showPrivateButton: PropTypes.bool.isRequired,
+};
