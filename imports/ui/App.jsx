@@ -59,7 +59,7 @@ class App extends Component {
               checked={this.state.hideCompleted}
               onClick={this.toggleHideCompleted.bind(this)}
             />
-            Hide Completed Tasks
+            Flush Completed Tasks
           </label>
 
           <AccountsUIWrapper />
