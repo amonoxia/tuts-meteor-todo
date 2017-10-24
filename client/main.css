@@ -14,7 +14,7 @@ body {
   padding: 0;
   margin: 0;
 
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .container {
@@ -90,7 +90,7 @@ li .text {
 }
 
 li.checked {
-  color: #888;
+  color: #b8a693;
 }
 
 li.checked .text {
