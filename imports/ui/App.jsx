@@ -69,7 +69,7 @@ class App extends Component {
               <input
                 type="text"
                 ref="textInput"
-                placeholder="Type to add new tasks"
+                placeholder="Add crap here"
                 />
             </form> : ''
           }
