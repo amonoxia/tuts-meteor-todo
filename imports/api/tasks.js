@@ -9,7 +9,7 @@ Meteor.methods ({
     check(text, String);
 
     // make sure the user is logged in before inserting a task
-    if (! Meteor.userID()) {
+    if (! Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
 
