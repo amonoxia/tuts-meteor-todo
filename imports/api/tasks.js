@@ -11,6 +11,7 @@ if (Meteor.isServer) {
     return Tasks.find({
       $or: [
         { private: { $ne: true } },
+        { owner: this.userId },
       ],
     });
   });
